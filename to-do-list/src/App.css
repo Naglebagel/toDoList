@@ -1,3 +1,39 @@
+body{
+  background-color: steelblue;
+  color: maroon;
+  text-align: center;
+}
+
+h1{
+  background-color: maroon;
+  color: steelblue;
+}
+
+textarea{
+  background-color: maroon;
+  color: steelblue;
+  border-radius: 10px;
+}
+
+ul{
+  list-style-type: none;
+  padding: 10px;
+}
+
+li{
+  padding: 5px;
+}
+
+button{
+  background-color: maroon;
+  color: steelblue;
+  border-radius: 10px;
+}
+
+.taskList{
+  border-style: solid;
+}
+
 .App {
   text-align: center;
 }

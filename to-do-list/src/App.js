@@ -1,20 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Show from './Show.js';
+import Form from './Form.js';
 
 class App extends Component {
+
+  constructor(){
+
+    super();
+
+    this.state = {
+      toDo: []
+    }
+  }
+
+createTask = (task) => {
+  const state = this.state;
+  state.toDo.push(task);
+  this.setState(state);
+}
+
+removeTask = (task) => {
+  const state = this.state;
+  state.toDo.splice(task.target.id, 1);
+  this.setState(state);
+}
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>To Do List</h1>
+        <p>When a task is complete click it to remove</p>
+        <Show toDo={this.state.toDo} removeTask={this.removeTask}/>
+        <h3>Create a New Task</h3>
+        <Form createTask={this.createTask}/>
       </div>
-    );
+    ) 
   }
 }
 
