@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 
 
 class Show extends Component {
+
+	removeTask = (e) => {
+		this.props.removeTask(e.currentTarget.value)
+	}
+
 	render(){
+
 		const tasks = this.props.toDo.map((item, i) =>{
 			return <div key={i}>
-			<li id={i} onClick={this.props.removeTask}>{item}</li>
+			<li >{item}</li>
+			<button onClick={this.removeTask}>Remove Task</button>
 			</div>
 		})
 

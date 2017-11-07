@@ -22,7 +22,8 @@ createTask = (task) => {
 
 removeTask = (task) => {
   const state = this.state;
-  state.toDo.splice(task.target.id, 1);
+  const index = state.toDo.indexOf(task)
+  state.toDo.splice(index, 1);
   this.setState(state);
 }
 
