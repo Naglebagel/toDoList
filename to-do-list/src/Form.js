@@ -28,7 +28,7 @@ handleInput = (e) => {
 	render(){
 		return(
 			<form>
-				<textarea name="inputValue" type="text" placeholder="new task" onChange={this.handleInput} value={this.state.inputValue}/><br></br>
+				<input name="inputValue" type="text" placeholder="new task" onChange={this.handleInput} value={this.state.inputValue}/><br></br>
 				<button onClick={this.handleSubmit}> Create Task</button>
 			</form>
 			)

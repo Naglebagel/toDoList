@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Show from './Show.js';
 import Form from './Form.js';
+import Edit from './edit.js'
 
 class App extends Component {
 
@@ -10,7 +11,9 @@ class App extends Component {
     super();
 
     this.state = {
-      toDo: []
+      toDo: [],
+      showEdit: false,
+      editedItem: ''
     }
   }
 
@@ -27,13 +30,29 @@ removeTask = (task) => {
   this.setState(state);
 }
 
+showEdit = (editedItem) => {
+  const state = this.state;
+  state.showEdit = !state.showEdit;
+  state.editedItem = editedItem;
+  this.setState(state)
+  console.log(this.state, 'this is state in apps', editedItem)
+}
+
+editTask = (task) => {
+  const index = this.state.toDo.indexOf(this.state.editedItem)
+  const state = this.state;
+  state.toDo[index] = task;
+  state.showEdit = !this.state.showEdit;
+  this.setState(state)
+}
+
 
   render() {
     return (
       <div className="App">
         <h1>To Do List</h1>
-        <p>When a task is complete click it to remove</p>
-        <Show toDo={this.state.toDo} removeTask={this.removeTask}/>
+        <Show toDo={this.state.toDo} showEdit={this.showEdit} removeTask={this.removeTask}/>
+        {this.state.showEdit ? <Edit showEdit={this.state.showEdit} editTask={this.editTask} editedItem={this.state.editedItem}/> : null}
         <h3>Create a New Task</h3>
         <Form createTask={this.createTask}/>
       </div>

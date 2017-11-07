@@ -9,10 +9,12 @@ h1{
   color: steelblue;
 }
 
-textarea{
+input{
   background-color: maroon;
   color: steelblue;
-  border-radius: 10px;
+  border-radius: 2px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 ul{
